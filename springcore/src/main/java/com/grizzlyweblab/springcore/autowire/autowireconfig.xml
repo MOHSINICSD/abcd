@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean class="com.grizzlyweblab.springcore.autowire.Exam" name="exam1" autowire-candidate="false">
+		<property name="result" value="passed" />
+	</bean>
+	
+	<bean class="com.grizzlyweblab.springcore.autowire.Exam" name="exam" >
+		<property name="result" value="fail" />
+	</bean>
+	
+
+	<!-- <bean class="com.grizzlyweblab.springcore.autowire.Student" name="student">
+		<property name="exam" ref="exam"/>
+	</bean>
+	 -->
+	<bean class="com.grizzlyweblab.springcore.autowire.Student" name="student" autowire="byType">
+		<!-- <property name="exam" ref="exam1"/> -->
+		<property name="year" value="2023"/>
+	</bean>
+	
+<!-- 	
+	no : It is the default autowiring mode. It means no autowiring bydefault.
+	byName : The byName mode injects the object dependency according to name of the bean. In such case, property name and bean name must be same. It internally calls setter method.
+	byType : The byType mode injects the object dependency according to type. So property name and bean name can be different. It internally calls setter method.
+	constructor : The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having large number of parameters.
+	autodetect : It is deprecated since Spring 3.
+	-->
+</beans>

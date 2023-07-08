@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--
+The <context:annotation-config/> element implicitly registers the following post-processors:
+• ConfigurationClassPostProcessor
+• AutowiredAnnotationBeanPostProcessor
+• CommonAnnotationBeanPostProcessor
+• PersistenceAnnotationBeanPostProcessor
+• EventListenerMethodProcessor 
+
+<context:annotation-config/>
+-->
+
+<context:annotation-config/>
+<!-- <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" /> -->
+
+<!-- Package life cycle setting starts-->
+
+<context:property-placeholder location="com/grizzlyweblab/springcore/lifecycle/app2.properties"/>
+
+	<bean class="com.grizzlyweblab.springcore.lifecycle.Employee" name="RefEmployee"
+		init-method="init" destroy-method="destroy">
+		<property name="name" value="${city}"/>		
+	</bean>
+
+	<bean class="com.grizzlyweblab.springcore.lifecycle.Teacher" name="RefTeacher">
+		<property name="name" value="Wali"/>		
+	</bean>
+	
+	
+	<bean class="com.grizzlyweblab.springcore.lifecycle.Staff" name="RefStaff">
+		<property name="name" value="Umar"/>		
+	</bean>
+	
+	
+	                 
+<!-- Package life cycle setting ends-->
+
+</beans>

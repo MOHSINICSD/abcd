@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Package di setting starts-->
+	<bean class="com.grizzlyweblab.springcore.di.Result" name="RefResult1">
+		<property name="grade" value="1 st"/>
+	</bean>
+
+	<bean class="com.grizzlyweblab.springcore.di.Result" name="RefResult2">
+		<property name="grade" value="2 nd"/>
+	</bean>
+        
+	<bean class="com.grizzlyweblab.springcore.di.Student" name="RefStudent1">
+		<property name="name" value="Mohsin"/>
+		<property name="age" value="20"/>
+		<property name="fees" value="300.0f"/>
+	</bean>
+	
+	<bean class="com.grizzlyweblab.springcore.di.Student" name="RefStudent2">
+		<constructor-arg value="Asad"/>
+		<constructor-arg value="200"/>
+		<constructor-arg value="900.0f"/>
+	</bean>
+
+	<bean class="com.grizzlyweblab.springcore.di.Student" name="RefStudent3">
+		<property name="name" value="Zaid"/>
+		<property name="age" value="30"/>
+		<property name="fees" value="500.0f"/>
+		<property name="result" ref="RefResult1"/>
+	</bean>
+
+	<bean class="com.grizzlyweblab.springcore.di.Student" name="RefStudent4">
+		<constructor-arg value="Gous"/>
+		<constructor-arg value="800"/>
+		<constructor-arg value="300.0f"/>
+		<constructor-arg ref="RefResult2"/>
+	</bean>
+<!-- Package di setting ends-->
+
+
+<!-- Package life cycle setting starts-->
+	<!-- 
+	<bean class="com.grizzlyweblab.springcore.lifecycle.Employee" name="RefEmployee"
+		init-method="init" destroy-method="destroy">
+		<property name="name" value="Ali"/>		
+	</bean>
+ 	-->
+<!-- Package life cycle setting ends-->
+</beans>
